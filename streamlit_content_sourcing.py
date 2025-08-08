@@ -17,9 +17,32 @@ load_dotenv()
 # Set page configuration
 st.set_page_config(page_title="Content Sourcing Agent Dashboard", layout="wide")
 
+# Custom CSS to move sidebar logo to the very top
+st.markdown("""
+<style>
+    .css-1d391kg {
+        padding-top: 0rem;
+    }
+    .sidebar .sidebar-content {
+        padding-top: 0rem;
+    }
+    .block-container {
+        padding-top: 1rem;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # Title and timestamp
 st.title("Content Sourcing Agent Dashboard")
 st.write(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S IST')}")
+
+# Add AIME logo at the very top of sidebar with minimal spacing
+st.sidebar.markdown('<div style="margin-top: -50px;">', unsafe_allow_html=True)
+st.sidebar.image("aime-logo-RGB (3).png", width=150)
+st.sidebar.markdown('</div>', unsafe_allow_html=True)
+
+# Add some spacing after logo
+#st.sidebar.markdown("---")
 
 # Sidebar for navigation and inputs
 st.sidebar.header("Dashboard Controls")
